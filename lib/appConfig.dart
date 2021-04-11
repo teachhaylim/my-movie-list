@@ -1,0 +1,1 @@
+final appName = "MyMoviesList";
