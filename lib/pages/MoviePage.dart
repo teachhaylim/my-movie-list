@@ -8,6 +8,7 @@ class MoviePage extends StatefulWidget {
 class _MoviePageState extends State<MoviePage> {
   @override
   Widget build(BuildContext context) {
-    return Text("Movie");
+    // return CustomCarousel(url: popularUrl);
+    return Text("Movie Page");
   }
 }

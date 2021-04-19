@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mymovieslist/pages/DetailPage.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
+import 'package:page_transition/page_transition.dart';
 
 class CustomCard extends StatefulWidget {
-  final data;
+  final obj;
+  final type;
 
-  const CustomCard({Key? key, required this.data}) : super(key: key);
+  const CustomCard({Key? key, required this.obj, required this.type}) : super(key: key);
 
   @override
   _CustomCardState createState() => _CustomCardState();
@@ -13,7 +16,7 @@ class CustomCard extends StatefulWidget {
 
 class _CustomCardState extends State<CustomCard> {
   void show() {
-    print(widget.data);
+    // print(widget.obj);
   }
 
   @override
@@ -25,15 +28,17 @@ class _CustomCardState extends State<CustomCard> {
         child: Card(
           semanticContainer: true,
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: CachedNetworkImage(
-            imageUrl: imageUrl + widget.data["poster_path"],
-            placeholder: (context, url) => CircularProgressIndicator.adaptive(),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-            imageBuilder: (context, imageProvider) => Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.cover,
+          child: Center(
+            child: CachedNetworkImage(
+              imageUrl: imageUrl + widget.obj["poster_path"],
+              placeholder: (context, url) => CircularProgressIndicator.adaptive(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+              imageBuilder: (context, imageProvider) => Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -44,7 +49,16 @@ class _CustomCardState extends State<CustomCard> {
           elevation: 6,
           margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
         ),
-        onTap: () => show(),
+        onTap: () => {
+          Navigator.push(
+            context,
+            PageTransition(
+              type: PageTransitionType.rightToLeft,
+              alignment: Alignment.center,
+              child: DetailPage(obj: widget.obj, type: widget.type),
+            ),
+          )
+        },
       ),
     );
   }

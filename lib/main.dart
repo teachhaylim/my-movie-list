@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mymovieslist/customWidgets/Layout.dart';
+import 'package:mymovieslist/utils/appConfig.dart';
 
-//FIXME Loading Content casue slow performance
-//TODO either fix the loading issue or change to use Tab Navigation
+// ignore: todo
+//TODO Item Detail Page, search(if have time)
+//BUG Loading Content casue slow performance
+//DONE Make Carousel Clickable
+//DONE HomePage
 
 void main() {
   runApp(MyApp());
@@ -13,12 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MyMoviesList',
       theme: ThemeData(
         brightness: Brightness.dark,
-        accentColor: Colors.purpleAccent,
-        primaryColorLight: Colors.pinkAccent,
-        primaryColorDark: Colors.greenAccent,
+        accentColor: accentColor,
+        primaryColorLight: primaryLight,
+        primaryColorDark: primaryDark,
       ),
       home: Layout(),
     );
