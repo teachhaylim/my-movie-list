@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
           CustomCarousel(url: popularUrl, type: "movie"),
 
           Row(children: [SectionTitle(title: "Trending TV Shows")]),
-          ListCards(uri: tvTrendingUrl, type: "movie"),
+          ListCards(uri: tvTrendingUrl, type: "tv"),
 
           Row(children: [SectionTitle(title: "Trending Movies")]),
           ListCards(uri: movieTrendingUrl, type: "movie"),

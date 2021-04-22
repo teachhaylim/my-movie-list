@@ -35,7 +35,12 @@ class _LayoutState extends State<Layout> {
       ),
       bottomNavigationBar: CustomBottomBar(selectedIndex: selectedIndex, onTap: _onTapButton),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {print("Go to search")},
+        onPressed: () => {
+          print("Go to search"),
+          AlertDialog(
+            title: Text("Seach"),
+          )
+        },
       ),
     );
   }

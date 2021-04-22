@@ -22,3 +22,5 @@ final tvTopRatedUrl = "https://api.themoviedb.org/3/tv/top_rated?api_key=$mykey&
 final tvTrendingUrl = "https://api.themoviedb.org/3/trending/tv/week?api_key=$mykey";
 
 final movieTrendingUrl = "https://api.themoviedb.org/3/trending/movie/week?api_key=$mykey";
+
+final movieDetailUrl = "https://api.themoviedb.org/3/movie/{movie_id}?api_key=$mykey&language=en-US";
