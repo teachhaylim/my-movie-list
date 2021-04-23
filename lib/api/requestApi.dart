@@ -56,3 +56,9 @@ Future getTVSimilar(tvID) async {
 
   return json.decode(res.body);
 }
+
+double getRating(double rating) {
+  double temp = 10 - rating;
+
+  return 5 - (temp.round() / 2);
+}

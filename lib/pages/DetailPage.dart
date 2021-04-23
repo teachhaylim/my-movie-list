@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:mymovieslist/api/requestApi.dart';
 import 'package:mymovieslist/customWidgets/SectionTitle.dart';
+import 'package:mymovieslist/customWidgets/StarRating.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 
 // ignore: todo
@@ -32,149 +33,167 @@ class _DetailPageState extends State<DetailPage> {
   @override
   void initState() {
     super.initState();
+
+    if (widget.type == "movie") {
+      getMovieDetail(widget.obj["id"]).then((value) {
+        setState(() {
+          objDetail = value;
+        });
+      });
+
+      getMovieCredit(widget.obj["id"]).then((value) {
+        setState(() {
+          objCredit = value;
+        });
+      });
+
+      getMovieReview(widget.obj["id"]).then((value) {
+        setState(() {
+          objReview = value;
+        });
+      });
+
+      getMovieSimilar(widget.obj["id"]).then((value) {
+        setState(() {
+          objSimilar = value;
+        });
+      });
+    } else {
+      getTVDetail(widget.obj["id"]).then((value) {
+        setState(() {
+          objDetail = value;
+        });
+      });
+
+      getTVCredit(widget.obj["id"]).then((value) {
+        setState(() {
+          objCredit = value;
+        });
+      });
+
+      getTVReview(widget.obj["id"]).then((value) {
+        setState(() {
+          objReview = value;
+        });
+      });
+
+      getTVSimilar(widget.obj["id"]).then((value) {
+        setState(() {
+          objSimilar = value;
+        });
+      });
+    }
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return obj != null
-  //       ? Scaffold(
-  //           appBar: AppBar(title: Text(widget.type.toUpperCase())),
-  //           body: SingleChildScrollView(
-  //             child: Column(
-  //               children: <Widget>[
-  //                 Row(
-  //                   crossAxisAlignment: CrossAxisAlignment.end,
-  //                   children: [
-  //                     Container(
-  //                       width: 180,
-  //                       height: 250,
-  //                       child: Card(
-  //                         semanticContainer: true,
-  //                         clipBehavior: Clip.antiAliasWithSaveLayer,
-  //                         child: Center(
-  //                           child: CachedNetworkImage(
-  //                             imageUrl: imageUrl + obj["poster_path"],
-  //                             placeholder: (context, url) => CircularProgressIndicator.adaptive(),
-  //                             errorWidget: (context, url, error) => Icon(Icons.error),
-  //                             imageBuilder: (context, imageProvider) => Container(
-  //                               decoration: BoxDecoration(
-  //                                 image: DecorationImage(
-  //                                   image: imageProvider,
-  //                                   fit: BoxFit.cover,
-  //                                 ),
-  //                               ),
-  //                             ),
-  //                           ),
-  //                         ),
-  //                         shape: RoundedRectangleBorder(
-  //                           borderRadius: BorderRadius.circular(15),
-  //                         ),
-  //                         elevation: 6,
-  //                         margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
-  //                       ),
-  //                     ),
-  //                     Flexible(
-  //                       child: Padding(
-  //                         padding: const EdgeInsets.only(bottom: 30),
-  //                         child: Text(
-  //                           obj["name"] != null ? obj["name"] : obj["title"],
-  //                           style: TextStyle(
-  //                             fontSize: 20,
-  //                             fontWeight: FontWeight.bold,
-  //                           ),
-  //                         ),
-  //                       ),
-  //                     ),
-  //                   ],
-  //                 ),
-  //                 Padding(
-  //                   padding: const EdgeInsets.all(10),
-  //                   child: Column(
-  //                     children: <Widget>[
-  //                       Row(
-  //                         children: [
-  //                           Container(
-  //                             child: Text(
-  //                               obj["name"] != null ? obj["name"] : obj["title"],
-  //                               style: TextStyle(
-  //                                 fontSize: 20,
-  //                                 fontWeight: FontWeight.bold,
-  //                               ),
-  //                             ),
-  //                           ),
-  //                         ],
-  //                       ),
-  //                       SizedBox(height: 10),
-  //                       Row(
-  //                         children: [
-  //                           Container(
-  //                             child: Text(
-  //                               obj["name"] != null ? obj["name"] : obj["title"],
-  //                               style: TextStyle(
-  //                                 fontSize: 20,
-  //                                 fontWeight: FontWeight.bold,
-  //                               ),
-  //                             ),
-  //                           ),
-  //                         ],
-  //                       ),
-  //                     ],
-  //                   ),
-  //                 )
-  //               ],
-  //             ),
-  //           ),
-  //         )
-  //       : Scaffold(
-  //           appBar: AppBar(),
-  //           body: SectionTitle(
-  //             myColor: Colors.red,
-  //             title: "Loding",
-  //           ),
-  //         );
-  // }
+  var objDetail, objCredit, objReview, objSimilar;
 
   @override
   Widget build(BuildContext context) {
-    Future<List<dynamic>> getTextFromFile() async {
-      var future = [];
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          objDetail != null
+              ? objDetail["title"] != null
+                  ? objDetail["title"]
+                  : objDetail["name"]
+              : widget.type.toUpperCase(),
+        ),
+      ),
+      body: objDetail != null
+          ? SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  HeaderSection(objDetail: objDetail),
+                ],
+              ),
+            )
+          : Center(child: CircularProgressIndicator()),
+    );
+  }
+}
 
-      if (widget.type == "movie") {
-        future.add(await getMovieDetail(widget.obj["id"]));
-        future.add(await getMovieCredit(widget.obj["id"]));
-        future.add(await getMovieReview(widget.obj["id"]));
-        future.add(await getMovieSimilar(widget.obj["id"]));
-      } else {
-        future.add(await getTVDetail(widget.obj["id"]));
-        future.add(await getTVCredit(widget.obj["id"]));
-        future.add(await getTVReview(widget.obj["id"]));
-        future.add(await getTVSimilar(widget.obj["id"]));
-      }
+class HeaderSection extends StatelessWidget {
+  const HeaderSection({Key? key, required this.objDetail}) : super(key: key);
 
-      return future;
-    }
+  final objDetail;
 
-    return new FutureBuilder<List<dynamic>>(
-      future: getTextFromFile(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return Scaffold(
-            appBar: AppBar(),
-            body: Center(
-              child: Text(snapshot.data?[0]["homepage"]),
-            ),
-          );
-        } else {
-          return Container(
-            decoration: BoxDecoration(
-              color: Colors.grey,
-            ),
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          margin: EdgeInsets.all(10),
+          height: 250,
+          width: 160,
+          child: Card(
+            semanticContainer: true,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
             child: Center(
-              child: CircularProgressIndicator(),
+              child: CachedNetworkImage(
+                imageUrl: imageUrl + objDetail["poster_path"],
+                placeholder: (context, url) => CircularProgressIndicator.adaptive(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.center,
+                    ),
+                  ),
+                ),
+              ),
             ),
-          );
-        }
-      },
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            elevation: 6,
+            margin: const EdgeInsets.all(0),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            height: 250,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Text(
+                      objDetail["title"] != null ? objDetail["title"] : objDetail["name"],
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Text(
+                      objDetail["release_date"].toString().substring(0, 4),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: StarRating(
+                    rating: getRating(objDetail["vote_average"]),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

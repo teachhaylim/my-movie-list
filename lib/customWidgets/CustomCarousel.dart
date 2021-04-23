@@ -7,10 +7,11 @@ import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:page_transition/page_transition.dart';
 
 class CustomCarousel extends StatefulWidget {
-  const CustomCarousel({Key? key, required this.url, required this.type}) : super(key: key);
+  const CustomCarousel({Key? key, required this.url, required this.type, this.itemCount}) : super(key: key);
 
   final String url;
   final type;
+  final itemCount;
 
   @override
   _CustomCarouselState createState() => _CustomCarouselState();
@@ -22,7 +23,7 @@ class _CustomCarouselState extends State<CustomCarousel> {
     super.initState();
     getData(widget.url).then((value) {
       setState(() {
-        datas = value.take(10).toList();
+        datas = value.take(widget.itemCount ?? 10).toList();
       });
     });
   }
@@ -114,8 +115,9 @@ class _GenericCardState extends State<GenericCard> {
                 widget.obj["title"],
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
+                  letterSpacing: 1.5,
                 ),
               ),
             ),
