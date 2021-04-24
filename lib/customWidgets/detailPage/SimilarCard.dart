@@ -4,20 +4,37 @@ import 'package:mymovieslist/pages/DetailPagev2.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:page_transition/page_transition.dart';
 
-class CustomCard extends StatefulWidget {
-  final obj;
-  final type;
+class SimilarSection extends StatelessWidget {
+  SimilarSection({this.datas, this.type = ""});
 
-  const CustomCard({Key? key, required this.obj, required this.type}) : super(key: key);
+  final datas;
+  final String type;
 
   @override
-  _CustomCardState createState() => _CustomCardState();
+  Widget build(BuildContext context) {
+    return Container(
+      height: 250,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            for (var i in datas)
+              SimilarCard(
+                data: i,
+                subtype: type,
+              ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
-class _CustomCardState extends State<CustomCard> {
-  void show() {
-    // print(widget.obj);
-  }
+class SimilarCard extends StatelessWidget {
+  SimilarCard({this.data, this.subtype = ""});
+
+  final data;
+  final String subtype;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +47,7 @@ class _CustomCardState extends State<CustomCard> {
           clipBehavior: Clip.antiAliasWithSaveLayer,
           child: Center(
             child: CachedNetworkImage(
-              imageUrl: imageUrl + widget.obj["poster_path"],
+              imageUrl: imageUrl + data["poster_path"],
               placeholder: (context, url) => CircularProgressIndicator.adaptive(),
               errorWidget: (context, url, error) => Icon(Icons.error),
               imageBuilder: (context, imageProvider) => Container(
@@ -55,7 +72,7 @@ class _CustomCardState extends State<CustomCard> {
             PageTransition(
               type: PageTransitionType.rightToLeft,
               alignment: Alignment.center,
-              child: DetailPage2(objID: widget.obj["id"], type: widget.type),
+              child: DetailPage2(objID: data["id"], type: subtype),
             ),
           )
         },

@@ -1,10 +1,7 @@
-import 'dart:ffi';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:mymovieslist/api/requestApi.dart';
-import 'package:mymovieslist/customWidgets/SectionTitle.dart';
+import 'package:mymovieslist/api/myAPI.dart';
 import 'package:mymovieslist/customWidgets/StarRating.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 
@@ -105,6 +102,7 @@ class _DetailPageState extends State<DetailPage> {
               child: Column(
                 children: [
                   HeaderSection(objDetail: objDetail),
+                  TextSection(),
                 ],
               ),
             )
@@ -195,5 +193,12 @@ class HeaderSection extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class TextSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(padding: const EdgeInsets.all(10), child: Text('asds'));
   }
 }

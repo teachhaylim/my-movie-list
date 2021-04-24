@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:mymovieslist/api/requestApi.dart';
+import 'package:mymovieslist/api/myAPI.dart';
 import 'package:mymovieslist/pages/DetailPage.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:page_transition/page_transition.dart';

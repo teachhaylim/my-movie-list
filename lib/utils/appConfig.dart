@@ -24,3 +24,5 @@ final tvTrendingUrl = "https://api.themoviedb.org/3/trending/tv/week?api_key=$my
 final movieTrendingUrl = "https://api.themoviedb.org/3/trending/movie/week?api_key=$mykey";
 
 final movieDetailUrl = "https://api.themoviedb.org/3/movie/{movie_id}?api_key=$mykey&language=en-US";
+
+final blankProfile = "https://lifelinemedicalservices.co.uk/wp-content/uploads/2020/06/blank-profile-picture-973460_1280.jpg";

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mymovieslist/utils/appConfig.dart';
 
 class StarRating extends StatelessWidget {
   final int starCount;
   final double rating;
+  final Color? color;
 
-  StarRating({this.starCount = 5, this.rating = .0});
+  StarRating({this.starCount = 5, this.rating = .0, this.color});
 
   Widget buildStar(BuildContext context, int index) {
     Icon icon;
@@ -13,17 +13,17 @@ class StarRating extends StatelessWidget {
     if (index >= rating) {
       icon = new Icon(
         Icons.star_border,
-        color: accentColor,
+        color: Colors.white54,
       );
     } else if (index > rating - 1 && index < rating) {
       icon = new Icon(
         Icons.star_half,
-        color: accentColor,
+        color: color ?? Colors.yellow.shade600,
       );
     } else {
       icon = new Icon(
         Icons.star,
-        color: accentColor,
+        color: color ?? Colors.yellow.shade600,
       );
     }
 

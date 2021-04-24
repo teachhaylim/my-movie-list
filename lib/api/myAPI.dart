@@ -24,13 +24,13 @@ Future getMovieCredit(movieID) async {
 Future getMovieReview(movieID) async {
   var res = await http.get(Uri.parse("https://api.themoviedb.org/3/movie/$movieID/reviews?api_key=$mykey&language=en-US"));
 
-  return json.decode(res.body);
+  return json.decode(res.body)["results"];
 }
 
 Future getMovieSimilar(movieID) async {
-  var res = await http.get(Uri.parse("https://api.themoviedb.org/3/tv/$movieID/similar?api_key=$mykey&language=en-US"));
+  var res = await http.get(Uri.parse("https://api.themoviedb.org/3/movie/$movieID/similar?api_key=$mykey&language=en-US"));
 
-  return json.decode(res.body);
+  return json.decode(res.body)["results"];
 }
 
 Future getTVDetail(tvID) async {
@@ -48,13 +48,13 @@ Future getTVCredit(tvID) async {
 Future getTVReview(tvID) async {
   var res = await http.get(Uri.parse("https://api.themoviedb.org/3/tv/$tvID/reviews?api_key=$mykey&language=en-US"));
 
-  return json.decode(res.body);
+  return json.decode(res.body)["results"];
 }
 
 Future getTVSimilar(tvID) async {
   var res = await http.get(Uri.parse("https://api.themoviedb.org/3/tv/$tvID/similar?api_key=$mykey&language=en-US"));
 
-  return json.decode(res.body);
+  return json.decode(res.body)["results"];
 }
 
 double getRating(double rating) {

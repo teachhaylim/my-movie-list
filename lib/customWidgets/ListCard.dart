@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mymovieslist/api/requestApi.dart';
+import 'package:mymovieslist/api/myAPI.dart';
 import 'package:mymovieslist/customWidgets/CustomCard.dart';
-import 'package:mymovieslist/customWidgets/SectionTitle.dart';
 
 class ListCards extends StatefulWidget {
   final String? uri;
@@ -29,6 +28,7 @@ class _ListCardsState extends State<ListCards> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 250,
       child: datas != null
           ? SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -41,7 +41,7 @@ class _ListCardsState extends State<ListCards> {
                     ),
                 ],
               ))
-          : SectionTitle(title: "Loading", myColor: Colors.red),
+          : Center(child: CircularProgressIndicator()),
     );
   }
 }

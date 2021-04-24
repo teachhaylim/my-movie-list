@@ -10,7 +10,7 @@ class SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 10, top: 5, bottom: 5),
+      // margin: EdgeInsets.only(left: 10, top: 5, bottom: 5),
       child: Text(
         title,
         style: GoogleFonts.robotoSlab(
