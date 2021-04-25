@@ -28,20 +28,19 @@ class _LayoutState extends State<Layout> {
         index: selectedIndex,
         children: <Widget>[
           HomePage(),
-          // TVPage(),
           MoviePage(),
           TVPage(),
         ],
       ),
       bottomNavigationBar: CustomBottomBar(selectedIndex: selectedIndex, onTap: _onTapButton),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {
-          print("Go to search"),
-          AlertDialog(
-            title: Text("Seach"),
-          )
-        },
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () => {
+      //     print("Go to search"),
+      //     AlertDialog(
+      //       title: Text("Seach"),
+      //     )
+      //   },
+      // ),
     );
   }
 }

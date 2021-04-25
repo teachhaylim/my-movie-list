@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mymovieslist/pages/DetailPagev2.dart';
+import 'package:mymovieslist/pages/DetailPage.dart';
+import 'package:mymovieslist/pages/DetailTVPage.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -55,7 +56,7 @@ class _CustomCardState extends State<CustomCard> {
             PageTransition(
               type: PageTransitionType.rightToLeft,
               alignment: Alignment.center,
-              child: DetailPage2(objID: widget.obj["id"], type: widget.type),
+              child: widget.type == "movie" ? DetailPage(objID: widget.obj["id"], type: widget.type) : DetailTVPage(objID: widget.obj["id"], type: widget.type),
             ),
           )
         },

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mymovieslist/utils/appConfig.dart';
 
 class ReviewCard extends StatelessWidget {
   ReviewCard(
@@ -120,9 +121,12 @@ class ReviewCard extends StatelessWidget {
                 flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 15),
-                  child: Scrollbar(
+                  child: RawScrollbar(
                     controller: _scrollController,
                     isAlwaysShown: true,
+                    thumbColor: primaryLight,
+                    radius: Radius.circular(20),
+                    thickness: 5,
                     child: SingleChildScrollView(
                       controller: _scrollController,
                       scrollDirection: Axis.vertical,

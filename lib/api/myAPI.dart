@@ -62,3 +62,40 @@ double getRating(double rating) {
 
   return 5 - (temp.round() / 2);
 }
+
+String getArr(arr, key, option, resultKey) {
+  String result = "";
+
+  arr.forEach((p) => {
+        if (p[key].toString().toLowerCase() == option.toString().toLowerCase()) {result = p[resultKey]}
+      });
+
+  return result.toString();
+}
+
+String getTVArr(arr, key, option, position, resultKey) {
+  String result = "";
+
+  arr.forEach((p) => {
+        if (p[key].toString().toLowerCase() == option.toString().toLowerCase())
+          {
+            result = p[resultKey],
+          }
+      });
+
+  return result.toString();
+}
+
+String getValue(arr, key) {
+  String result = "";
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr.length - 1 == i) {
+      result += arr[i][key];
+    } else {
+      result += arr[i][key] + ",\n";
+    }
+  }
+
+  return result;
+}

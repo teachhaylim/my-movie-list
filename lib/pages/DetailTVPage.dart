@@ -9,73 +9,46 @@ import 'package:mymovieslist/customWidgets/detailPage/ReviewCard.dart';
 import 'package:mymovieslist/customWidgets/detailPage/SimilarCard.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 
-//FIXME director, genre, studio are implement
-//FIXME review avatar url link
-
-class DetailPage2 extends StatefulWidget {
+class DetailTVPage extends StatefulWidget {
   final objID;
   final type;
 
-  const DetailPage2({Key? key, required this.objID, required this.type}) : super(key: key);
+  const DetailTVPage({Key? key, required this.objID, required this.type}) : super(key: key);
 
   @override
-  _DetailPage2State createState() => _DetailPage2State();
+  _DetailTVPageState createState() => _DetailTVPageState();
 }
 
-class _DetailPage2State extends State<DetailPage2> {
+class _DetailTVPageState extends State<DetailTVPage> {
   @override
   void initState() {
     super.initState();
 
-    if (widget.type == "movie") {
-      getMovieDetail(widget.objID).then((value) {
-        setState(() {
-          objDetail = value;
-        });
-      });
+    getTVDetail(widget.objID).then((value) {
+      print(value["id"]);
 
-      getMovieCredit(widget.objID).then((value) {
-        setState(() {
-          objCredit = value;
-        });
+      setState(() {
+        objDetail = value;
       });
+    });
 
-      getMovieReview(widget.objID).then((value) {
-        setState(() {
-          objReview = value;
-        });
+    getTVCredit(widget.objID).then((value) {
+      setState(() {
+        objCredit = value;
       });
+    });
 
-      getMovieSimilar(widget.objID).then((value) {
-        setState(() {
-          objSimilar = value.take(8).toList();
-        });
+    getTVReview(widget.objID).then((value) {
+      setState(() {
+        objReview = value;
       });
-    } else {
-      getTVDetail(widget.objID).then((value) {
-        setState(() {
-          objDetail = value;
-        });
-      });
+    });
 
-      getTVCredit(widget.objID).then((value) {
-        setState(() {
-          objCredit = value;
-        });
+    getTVSimilar(widget.objID).then((value) {
+      setState(() {
+        objSimilar = value.take(8).toList();
       });
-
-      getTVReview(widget.objID).then((value) {
-        setState(() {
-          objReview = value;
-        });
-      });
-
-      getTVSimilar(widget.objID).then((value) {
-        setState(() {
-          objSimilar = value;
-        });
-      });
-    }
+    });
   }
 
   var objDetail, objCredit, objReview, objSimilar;
@@ -85,7 +58,14 @@ class _DetailPage2State extends State<DetailPage2> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        title: Text(widget.type.toString().toUpperCase()),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: objDetail != null && objCredit != null && objReview != null && objSimilar != null
@@ -104,15 +84,7 @@ class _DetailPage2State extends State<DetailPage2> {
 }
 
 class Page extends StatelessWidget {
-  const Page({
-    Key? key,
-    required this.size,
-    required this.objDetail,
-    required this.objCredit,
-    required this.objReview,
-    required this.objSimilar,
-    required this.subtype,
-  }) : super(key: key);
+  const Page({Key? key, required this.size, required this.objDetail, required this.objCredit, required this.objReview, required this.objSimilar, required this.subtype}) : super(key: key);
 
   final Size size;
   final objDetail;
@@ -180,12 +152,12 @@ class Page extends StatelessWidget {
                         Flexible(
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 5),
-                            child: Text(objDetail["title"], style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                            child: Text(objDetail["name"], style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(bottom: 5),
-                          child: Text(objDetail["release_date"], style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.bold)),
+                          child: Text(objDetail["first_air_date"] + " - " + objDetail["last_air_date"], style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.bold)),
                         ),
                         StarRating(rating: getRating(objDetail["vote_average"])),
                       ],
@@ -201,9 +173,10 @@ class Page extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                FormText(label: "Director", value: "Adam Wingard"),
-                FormText(label: "Genre", value: "Action/Adventure, Sci-Fi, Thirller"),
-                FormText(label: "Studio", value: "Warner Bros. Pictures"),
+                if (getArr(objCredit["crew"], "known_for_department", "Directing", "name") != "" || getArr(objCredit["crew"], "known_for_department", "Writing", "name") != "")
+                  FormText(label: "Director", value: getArr(objCredit["crew"], "known_for_department", "Directing", "name") != "" ? getArr(objCredit["crew"], "known_for_department", "Directing", "name") : getArr(objCredit["crew"], "known_for_department", "Writing", "name")),
+                if (objDetail["genres"].length != 0) FormText(label: "Genre", value: getValue(objDetail["genres"], "name")),
+                if (objDetail["production_companies"].length != 0) FormText(label: "Studio", value: getValue(objDetail["production_companies"], "name")),
               ],
             ),
           ),
@@ -213,7 +186,7 @@ class Page extends StatelessWidget {
             thickness: 3,
             color: Colors.grey,
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Container(
             child: Text(
               objDetail["overview"],
@@ -252,33 +225,35 @@ class Page extends StatelessWidget {
             color: Colors.grey,
           ),
           SizedBox(height: 10),
-          SectionTitle(title: "Reviews"),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                for (var i in objReview)
-                  ReviewCard(
-                    name: i["author"],
-                    description: i["content"],
-                    rating: i["author_details"]["rating"] != null ? i["author_details"]["rating"] : 0,
-                    imageUrl: i["author_details"]["avatar_path"] != null
-                        ? checkUrl(i["author_details"]["avatar_path"])
-                            ? blankProfile
-                            : imageUrl + i["author_details"]["avatar_path"]
-                        : blankProfile,
-                  ),
-              ],
+          if (objReview.length != 0) SectionTitle(title: "Reviews"),
+          if (objReview.length != 0)
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for (var i in objReview)
+                    ReviewCard(
+                      name: i["author"],
+                      description: i["content"],
+                      rating: i["author_details"]["rating"] != null ? i["author_details"]["rating"] : 0,
+                      imageUrl: i["author_details"]["avatar_path"] != null
+                          ? checkUrl(i["author_details"]["avatar_path"])
+                              ? i["author_details"]["avatar_path"].substring(1, i["author_details"]["avatar_path"].length)
+                              : imageUrl + i["author_details"]["avatar_path"]
+                          : blankProfile,
+                    ),
+                ],
+              ),
             ),
-          ),
-          Divider(
-            height: 10,
-            thickness: 3,
-            color: Colors.grey,
-          ),
-          SizedBox(height: 10),
-          SectionTitle(title: "People also like"),
-          SimilarSection(datas: objSimilar, type: subtype),
+          if (objReview.length != 0)
+            Divider(
+              height: 10,
+              thickness: 3,
+              color: Colors.grey,
+            ),
+          if (objReview.length != 0) SizedBox(height: 10),
+          if (objSimilar.length != 0) SectionTitle(title: "People also like"),
+          if (objSimilar.length != 0) SimilarSection(datas: objSimilar, type: subtype),
         ],
       ),
     );

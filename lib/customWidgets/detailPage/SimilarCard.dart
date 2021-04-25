@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mymovieslist/pages/DetailPagev2.dart';
+import 'package:mymovieslist/pages/DetailPage.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -72,7 +72,7 @@ class SimilarCard extends StatelessWidget {
             PageTransition(
               type: PageTransitionType.rightToLeft,
               alignment: Alignment.center,
-              child: DetailPage2(objID: data["id"], type: subtype),
+              child: DetailPage(objID: data["id"], type: subtype),
             ),
           )
         },

@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:mymovieslist/api/myAPI.dart';
 import 'package:mymovieslist/pages/DetailPage.dart';
+import 'package:mymovieslist/pages/DetailTVPage.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -112,7 +113,7 @@ class _GenericCardState extends State<GenericCard> {
               alignment: Alignment.bottomCenter,
               decoration: BoxDecoration(color: Colors.transparent),
               child: Text(
-                widget.obj["title"],
+                widget.type == "movie" ? widget.obj["title"] : widget.obj["name"],
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
@@ -134,7 +135,7 @@ class _GenericCardState extends State<GenericCard> {
           PageTransition(
             type: PageTransitionType.rightToLeft,
             alignment: Alignment.center,
-            child: DetailPage(obj: widget.obj, type: widget.type),
+            child: widget.type == "movie" ? DetailPage(objID: widget.obj["id"], type: widget.type) : DetailTVPage(objID: widget.obj["id"], type: widget.type),
           ),
         )
       },
