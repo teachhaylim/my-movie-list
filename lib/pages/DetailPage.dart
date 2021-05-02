@@ -11,9 +11,8 @@ import 'package:mymovieslist/utils/appConfig.dart';
 
 class DetailPage extends StatefulWidget {
   final objID;
-  final type;
 
-  const DetailPage({Key? key, required this.objID, required this.type}) : super(key: key);
+  const DetailPage({Key? key, required this.objID}) : super(key: key);
 
   @override
   _DetailPageState createState() => _DetailPageState();
@@ -61,7 +60,7 @@ class _DetailPageState extends State<DetailPage> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text(widget.type.toString().toUpperCase()),
+        title: Text("Movie"),
         centerTitle: true,
       ),
       body: Padding(
@@ -73,7 +72,6 @@ class _DetailPageState extends State<DetailPage> {
                 objCredit: objCredit,
                 objReview: objReview,
                 objSimilar: objSimilar,
-                subtype: widget.type,
               )
             : Center(child: CircularProgressIndicator()),
       ),
@@ -82,17 +80,24 @@ class _DetailPageState extends State<DetailPage> {
 }
 
 class Page extends StatelessWidget {
-  const Page({Key? key, required this.size, required this.objDetail, required this.objCredit, required this.objReview, required this.objSimilar, required this.subtype}) : super(key: key);
+  const Page({Key? key, required this.size, required this.objDetail, required this.objCredit, required this.objReview, required this.objSimilar}) : super(key: key);
 
   final Size size;
   final objDetail;
   final objCredit;
   final objReview;
   final objSimilar;
-  final subtype;
 
   bool checkUrl(str) {
     return str.contains("https://");
+  }
+
+  checkAvatar(obj) {
+    return obj["author_details"]["avatar_path"] != null
+        ? checkUrl(obj["author_details"]["avatar_path"])
+            ? obj["author_details"]["avatar_path"].substring(1, obj["author_details"]["avatar_path"].length)
+            : imageUrl + obj["author_details"]["avatar_path"]
+        : blankProfile;
   }
 
   @override
@@ -233,11 +238,7 @@ class Page extends StatelessWidget {
                       name: i["author"],
                       description: i["content"],
                       rating: i["author_details"]["rating"] != null ? i["author_details"]["rating"] : 0,
-                      imageUrl: i["author_details"]["avatar_path"] != null
-                          ? checkUrl(i["author_details"]["avatar_path"])
-                              ? i["author_details"]["avatar_path"].substring(1, i["author_details"]["avatar_path"].length)
-                              : imageUrl + i["author_details"]["avatar_path"]
-                          : blankProfile,
+                      imageUrl: checkAvatar(i),
                     ),
                 ],
               ),
@@ -250,7 +251,7 @@ class Page extends StatelessWidget {
             ),
           if (objReview.length != 0) SizedBox(height: 10),
           SectionTitle(title: "People also like"),
-          SimilarSection(datas: objSimilar, type: subtype),
+          SimilarSection(datas: objSimilar),
         ],
       ),
     );

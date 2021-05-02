@@ -5,10 +5,9 @@ import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SimilarSection extends StatelessWidget {
-  SimilarSection({this.datas, this.type = ""});
+  SimilarSection({this.datas});
 
   final datas;
-  final String type;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +17,7 @@ class SimilarSection extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            for (var i in datas)
-              SimilarCard(
-                data: i,
-                subtype: type,
-              ),
+            for (var i in datas) SimilarCard(data: i),
           ],
         ),
       ),
@@ -31,10 +26,9 @@ class SimilarSection extends StatelessWidget {
 }
 
 class SimilarCard extends StatelessWidget {
-  SimilarCard({this.data, this.subtype = ""});
+  SimilarCard({this.data});
 
   final data;
-  final String subtype;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +66,7 @@ class SimilarCard extends StatelessWidget {
             PageTransition(
               type: PageTransitionType.rightToLeft,
               alignment: Alignment.center,
-              child: DetailPage(objID: data["id"], type: subtype),
+              child: DetailPage(objID: data["id"]),
             ),
           )
         },

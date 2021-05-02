@@ -39,8 +39,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
       onTap: (index) => {widget.onTap(index)},
       items: [
         BottomNavigationBarItem(icon: widget.selectedIndex == 0 ? new Icon(Icons.home_outlined) : new Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: widget.selectedIndex == 1 ? new Icon(Icons.movie_outlined) : new Icon(Icons.movie), label: 'Movie'),
-        BottomNavigationBarItem(icon: widget.selectedIndex == 2 ? new Icon(Icons.live_tv) : new Icon(Icons.tv), label: 'Tv Show'),
+        BottomNavigationBarItem(icon: widget.selectedIndex == 1 ? new Icon(Icons.search) : new Icon(Icons.search), label: 'Search'),
+        // BottomNavigationBarItem(icon: widget.selectedIndex == 2 ? new Icon(Icons.live_tv) : new Icon(Icons.tv), label: 'Tv Show'),
       ],
       selectedLabelStyle: const TextStyle(fontSize: 14),
       unselectedLabelStyle: const TextStyle(fontSize: 10),

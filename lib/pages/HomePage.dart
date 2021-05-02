@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          CustomCarousel(url: popularUrl, type: "movie", itemCount: 12),
+          CustomCarousel(url: popularUrl, itemCount: 12),
           Row(children: [SectionTitle(title: "Trending TV Shows")]),
           ListCards(uri: tvTrendingUrl, type: "tv"),
           Row(children: [SectionTitle(title: "Trending Movies")]),

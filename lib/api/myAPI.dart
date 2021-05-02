@@ -9,6 +9,18 @@ getData(url) async {
   return json.decode(response.body)["results"];
 }
 
+getGenre(url) async {
+  var response = await http.get(Uri.parse(url));
+
+  return json.decode(response.body)["genres"];
+}
+
+searchMovie(query) async {
+  var res = await http.get(Uri.parse("https://api.themoviedb.org/3/search/movie?api_key=$mykey&language=en-US&query=$query&page=1&include_adult=false"));
+
+  return json.decode(res.body)["results"];
+}
+
 Future getMovieDetail(movieID) async {
   var res = await http.get(Uri.parse("https://api.themoviedb.org/3/movie/$movieID?api_key=$mykey&language=en-US"));
 

@@ -3,15 +3,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:mymovieslist/api/myAPI.dart';
 import 'package:mymovieslist/pages/DetailPage.dart';
-import 'package:mymovieslist/pages/DetailTVPage.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:page_transition/page_transition.dart';
 
 class CustomCarousel extends StatefulWidget {
-  const CustomCarousel({Key? key, required this.url, required this.type, this.itemCount}) : super(key: key);
+  const CustomCarousel({Key? key, required this.url, this.itemCount}) : super(key: key);
 
   final String url;
-  final type;
   final itemCount;
 
   @override
@@ -55,14 +53,14 @@ class _CustomCarouselState extends State<CustomCarousel> {
             ? datas.map<Widget>((i) {
                 return Builder(
                   builder: (BuildContext context) {
-                    return GenericCard(obj: i, type: widget.type);
+                    return GenericCard(obj: i);
                   },
                 );
               }).toList()
             : placeholderImage.map<Widget>((i) {
                 return Builder(
                   builder: (BuildContext context) {
-                    return GenericCard(obj: i, type: widget.type);
+                    return GenericCard(obj: i);
                   },
                 );
               }).toList(),
@@ -72,10 +70,9 @@ class _CustomCarouselState extends State<CustomCarousel> {
 }
 
 class GenericCard extends StatefulWidget {
-  const GenericCard({Key? key, required this.obj, required this.type}) : super(key: key);
+  const GenericCard({Key? key, required this.obj}) : super(key: key);
 
   final obj;
-  final type;
 
   @override
   _GenericCardState createState() => _GenericCardState();
@@ -113,7 +110,7 @@ class _GenericCardState extends State<GenericCard> {
               alignment: Alignment.bottomCenter,
               decoration: BoxDecoration(color: Colors.transparent),
               child: Text(
-                widget.type == "movie" ? widget.obj["title"] : widget.obj["name"],
+                widget.obj["title"],
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
@@ -135,7 +132,7 @@ class _GenericCardState extends State<GenericCard> {
           PageTransition(
             type: PageTransitionType.rightToLeft,
             alignment: Alignment.center,
-            child: widget.type == "movie" ? DetailPage(objID: widget.obj["id"], type: widget.type) : DetailTVPage(objID: widget.obj["id"], type: widget.type),
+            child: DetailPage(objID: widget.obj["id"]),
           ),
         )
       },

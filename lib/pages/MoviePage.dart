@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mymovieslist/customWidgets/CustomCarousel.dart';
+import 'package:mymovieslist/customWidgets/CustomCategory.dart';
+import 'package:mymovieslist/customWidgets/GernricTitle.dart';
 import 'package:mymovieslist/customWidgets/ListCard.dart';
 import 'package:mymovieslist/customWidgets/SectionTitle.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
@@ -16,41 +18,16 @@ class _MoviePageState extends State<MoviePage> {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          CustomCarousel(url: popularUrl, type: "movie", itemCount: 10),
-          Row(children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: SectionTitle(title: "Popular"),
-            )
-          ]),
+          CustomCarousel(url: upcomingUrl, itemCount: 10),
+          GernicTitle(title: "Genre"),
+          CustomCategory(),
+          GernicTitle(title: "Popular"),
           ListCards(uri: popularUrl, type: "movie"),
-          Row(children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: SectionTitle(title: "Top Rated"),
-            )
-          ]),
-          CustomCarousel(url: topRatedUrl, type: "movie", itemCount: 15),
-          Row(children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: SectionTitle(title: "Now Showing"),
-            )
-          ]),
+          GernicTitle(title: "Now Showing"),
           ListCards(uri: showingUrl, type: "movie"),
-          Row(children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: SectionTitle(title: "Upcoming"),
-            )
-          ]),
-          CustomCarousel(url: upcomingUrl, type: "movie", itemCount: 15),
-          Row(children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: SectionTitle(title: "Top Trending"),
-            )
-          ]),
+          GernicTitle(title: "Top Rated"),
+          CustomCarousel(url: topRatedUrl, itemCount: 15),
+          GernicTitle(title: "Top Trending"),
           ListCards(uri: movieTrendingUrl, type: "movie"),
         ],
       ),
