@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark, accentColor: accentColor, primaryColorLight: primaryLight, primaryColorDark: primaryDark),
-      home: SearchPage(),
+      home: Layout(),
     );
   }
 }
