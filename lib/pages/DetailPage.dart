@@ -7,7 +7,9 @@ import 'package:mymovieslist/customWidgets/detailPage/CastAvatar.dart';
 import 'package:mymovieslist/customWidgets/detailPage/FormText.dart';
 import 'package:mymovieslist/customWidgets/detailPage/ReviewCard.dart';
 import 'package:mymovieslist/customWidgets/detailPage/SimilarCard.dart';
+import 'package:mymovieslist/pages/Layout.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
+import 'package:page_transition/page_transition.dart';
 
 class DetailPage extends StatefulWidget {
   final objID;
@@ -58,7 +60,11 @@ class _DetailPageState extends State<DetailPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => Layout()),
+            (Route<dynamic> route) => false,
+          ),
         ),
         title: Text("Movie"),
         centerTitle: true,

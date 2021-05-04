@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mymovieslist/customWidgets/coreWidget/CustomAppBar.dart';
+import 'package:mymovieslist/customWidgets/coreWidget/CustomAppBar2.dart';
 import 'package:mymovieslist/customWidgets/coreWidget/CustomBottomBar.dart';
 import 'package:mymovieslist/pages/DetailPage.dart';
 import 'package:mymovieslist/pages/MoviePage.dart';
@@ -17,29 +18,29 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar2(),
       body: MoviePage(),
-      floatingActionButton: FloatingActionButton(
-        child: Container(
-          width: 60,
-          height: 60,
-          child: Icon(
-            Icons.search,
-            size: 30,
-          ),
-          decoration: BoxDecoration(shape: BoxShape.circle, gradient: LinearGradient(colors: [accentColor, primaryDark])),
-        ),
-        onPressed: () => {
-          Navigator.push(
-            context,
-            PageTransition(
-              type: PageTransitionType.rightToLeft,
-              alignment: Alignment.center,
-              child: SearchPage(),
-            ),
-          )
-        },
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Container(
+      //     width: 60,
+      //     height: 60,
+      //     child: Icon(
+      //       Icons.search,
+      //       size: 30,
+      //     ),
+      //     decoration: BoxDecoration(shape: BoxShape.circle, gradient: LinearGradient(colors: [accentColor, primaryDark])),
+      //   ),
+      //   onPressed: () => {
+      //     Navigator.push(
+      //       context,
+      //       PageTransition(
+      //         type: PageTransitionType.rightToLeft,
+      //         alignment: Alignment.center,
+      //         child: SearchPage(),
+      //       ),
+      //     )
+      //   },
+      // ),
     );
   }
 }

@@ -13,9 +13,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return new PreferredSize(
-      child: new Container(
-        padding: new EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-        child: new Padding(
+      child: Container(
+        padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+        child: Padding(
           padding: const EdgeInsets.all(15),
           child: Text(
             appName,
