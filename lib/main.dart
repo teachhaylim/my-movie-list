@@ -5,7 +5,6 @@ import 'package:mymovieslist/utils/appConfig.dart';
 
 // ignore: todo
 /*TODO
-search(if have time)
 genre not implemente function yet
 */
 //BUG Loading Content casue slow performance

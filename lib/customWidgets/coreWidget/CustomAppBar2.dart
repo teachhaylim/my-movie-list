@@ -10,6 +10,7 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(appName),
+      automaticallyImplyLeading: false,
       backgroundColor: accentColor,
       actions: [
         IconButton(

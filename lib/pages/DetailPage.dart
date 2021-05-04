@@ -60,11 +60,7 @@ class _DetailPageState extends State<DetailPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => Layout()),
-            (Route<dynamic> route) => false,
-          ),
+          onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text("Movie"),
         centerTitle: true,
