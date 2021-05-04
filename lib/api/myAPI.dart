@@ -21,6 +21,12 @@ searchMovie(query) async {
   return json.decode(res.body)["results"];
 }
 
+getMovieByGenre(genreID) async {
+  var res = await http.get(Uri.parse("https://api.themoviedb.org/3/discover/movie?api_key=$mykey&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=$genreID&with_watch_monetization_types=flatrate"));
+
+  return json.decode(res.body)["results"];
+}
+
 Future getMovieDetail(movieID) async {
   var res = await http.get(Uri.parse("https://api.themoviedb.org/3/movie/$movieID?api_key=$mykey&language=en-US"));
 

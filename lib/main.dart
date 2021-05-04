@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mymovieslist/pages/Layout.dart';
-import 'package:mymovieslist/pages/SearchPage.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 
 // ignore: todo

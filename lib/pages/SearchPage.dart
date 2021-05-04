@@ -6,7 +6,6 @@ import 'package:page_transition/page_transition.dart';
 
 class SearchPage extends SearchDelegate<String> {
   myTap(context, id) {
-    print(id);
     Navigator.push(
       context,
       PageTransition(

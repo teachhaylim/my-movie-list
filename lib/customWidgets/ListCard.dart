@@ -4,9 +4,8 @@ import 'package:mymovieslist/customWidgets/CustomCard.dart';
 
 class ListCards extends StatefulWidget {
   final String? uri;
-  final String? type;
 
-  const ListCards({Key? key, required this.uri, required this.type}) : super(key: key);
+  const ListCards({Key? key, required this.uri}) : super(key: key);
 
   @override
   _ListCardsState createState() => _ListCardsState();
@@ -34,11 +33,7 @@ class _ListCardsState extends State<ListCards> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  for (var i in datas)
-                    CustomCard(
-                      obj: i,
-                      type: widget.type,
-                    ),
+                  for (var i in datas) CustomCard(obj: i),
                 ],
               ))
           : Center(child: CircularProgressIndicator()),

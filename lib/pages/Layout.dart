@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mymovieslist/customWidgets/coreWidget/CustomAppBar.dart';
-import 'package:mymovieslist/customWidgets/coreWidget/CustomAppBar2.dart';
-import 'package:mymovieslist/customWidgets/coreWidget/CustomBottomBar.dart';
-import 'package:mymovieslist/pages/DetailPage.dart';
-import 'package:mymovieslist/pages/MoviePage.dart';
+import 'package:mymovieslist/pages/HomePage.dart';
 import 'package:mymovieslist/pages/SearchPage.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
-import 'package:page_transition/page_transition.dart';
 
 class Layout extends StatefulWidget {
   @override
@@ -19,7 +15,7 @@ class _LayoutState extends State<Layout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),
-      body: MoviePage(),
+      body: HomePage(),
       floatingActionButton: FloatingActionButton(
         child: Container(
           width: 60,
