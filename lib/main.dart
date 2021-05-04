@@ -15,7 +15,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.dark, accentColor: accentColor, primaryColorLight: primaryLight, primaryColorDark: primaryDark, fontFamily: 'Roboto-Medium', visualDensity: VisualDensity.adaptivePlatformDensity, splashColor: const Color(0xffFFC600), highlightColor: Color(0xffffc600)),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        accentColor: accentColor,
+        primaryColorLight: primaryLight,
+        primaryColorDark: primaryDark,
+        fontFamily: 'Roboto-Medium',
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        splashColor: const Color(0xffFFC600),
+        highlightColor: Color(0xffffc600),
+      ),
       home: Layout(),
     );
   }
