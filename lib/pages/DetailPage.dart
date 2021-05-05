@@ -221,12 +221,13 @@ class Page extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
-            height: 10,
-            thickness: 3,
-            color: Colors.grey,
-          ),
-          SizedBox(height: 10),
+          if (objReview.length != 0)
+            Divider(
+              height: 10,
+              thickness: 3,
+              color: Colors.grey,
+            ),
+          if (objReview.length != 0) SizedBox(height: 10),
           if (objReview.length != 0) SectionTitle(title: "Reviews"),
           if (objReview.length != 0)
             SingleChildScrollView(
@@ -243,15 +244,15 @@ class Page extends StatelessWidget {
                 ],
               ),
             ),
-          if (objReview.length != 0)
+          if (objSimilar.length != 0)
             Divider(
               height: 10,
               thickness: 3,
               color: Colors.grey,
             ),
-          if (objReview.length != 0) SizedBox(height: 10),
-          SectionTitle(title: "People also like"),
-          SimilarSection(datas: objSimilar),
+          if (objSimilar.length != 0) SizedBox(height: 10),
+          if (objSimilar.length != 0) SectionTitle(title: "People also like"),
+          if (objSimilar.length != 0) SimilarSection(datas: objSimilar),
         ],
       ),
     );

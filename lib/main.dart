@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mymovieslist/pages/Layout.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 
-// ignore: todo
-/*TODO
-genre not implemente function yet
-*/
 //BUG Loading Content casue slow performance
 
 void main() {

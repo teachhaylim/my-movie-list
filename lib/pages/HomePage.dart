@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mymovieslist/customWidgets/CustomCarousel.dart';
 import 'package:mymovieslist/customWidgets/CustomCategory.dart';
 import 'package:mymovieslist/customWidgets/GernricTitle.dart';
-import 'package:mymovieslist/customWidgets/SectionTitle.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 import 'package:mymovieslist/customWidgets/ListCard.dart';
 
