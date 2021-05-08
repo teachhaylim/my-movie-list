@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mymovieslist/api/myAPI.dart';
-import 'package:mymovieslist/customWidgets/CustomGenreCard.dart';
 import 'package:mymovieslist/customWidgets/StarRating.dart';
 import 'package:mymovieslist/pages/DetailPage.dart';
 import 'dart:math';
