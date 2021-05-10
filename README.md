@@ -10,11 +10,6 @@ A movies version of MyAnimeList using TheMoviesDatabase API
 
 ### Prototype 1
 
-#### Technologies
-- Flutter & Dart
-- Material Design System
-- TheMoviesDatabase API
-
 #### Pages
 -   Home (Mix between Movie and TV Show)
 -   Movie
@@ -22,11 +17,6 @@ A movies version of MyAnimeList using TheMoviesDatabase API
 -   Dynamic Detail Page based on user selection
 
 ### Prototype 2
-
-#### Technologies
-- Flutter & Dart
-- Material Design System
-- TheMoviesDatabase API
 
 #### Pages
 -   Home (Movie Only)
