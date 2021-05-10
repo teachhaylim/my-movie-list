@@ -1,6 +1,32 @@
 # MyMoviesList
  A movies version of MyAnimeList using TheMoviesDatabase API
 
+### Prototype 1
+
+#### Technologies
+- Flutter & Dart
+- Material Design System
+- TheMoviesDatabase API
+
+#### Pages
+-   Home (Mix between Movie and TV Show)
+-   Movie
+-   TV Show
+-   Dynamic Detail Page based on user selection
+
+### Prototype 2
+
+#### Technologies
+- Flutter & Dart
+- Material Design System
+- TheMoviesDatabase API
+
+#### Pages
+-   Home (Movie Only)
+-   Genre Page
+-   Search Page
+-   Dynamic Detail Page based on user selection or search
+
 # Technologies
 - Flutter & Dart
 - Material Design System
