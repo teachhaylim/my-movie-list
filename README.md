@@ -7,6 +7,7 @@
 [Technologies](#technologies)
 [Note](#note)
 [Credit](#credit)
+...snip...
 
 ### Prototype 1
 
