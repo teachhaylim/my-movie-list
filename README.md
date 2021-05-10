@@ -1,5 +1,12 @@
 # MyMoviesList
  A movies version of MyAnimeList using TheMoviesDatabase API
+ 
+## Table of Contents
+ - (Prototype 1)[#prototype_1]
+ - (Prototype 2)[#prototype_2]
+ - (Techonologies)[#technologies]
+ - (Note)[#note]
+ - (Credit)[#credit]
 
 ### Prototype 1
 
