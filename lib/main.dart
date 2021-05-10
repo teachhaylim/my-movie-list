@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mymovieslist/pages/Layout.dart';
 import 'package:mymovieslist/utils/appConfig.dart';
 
-// ignore: todo
-//TODO search(if have time)
 //BUG Loading Content casue slow performance, mismatch information sometime
 
 void main() {
