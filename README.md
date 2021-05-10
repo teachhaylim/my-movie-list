@@ -9,8 +9,7 @@
 # Note
 The creator of this app doesn't own any assests used in the app, all credit to the assets owners  
 
-This project is a student project
- # Credit
+# Credit
  - [Teachhay Lim](https://www.facebook.com/TeachhayLim12) 
  - [TheMoviesDatabase API](https://developers.themoviedb.org/3)
  - Based on 
