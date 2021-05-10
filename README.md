@@ -1,13 +1,14 @@
 # MyMoviesList
  A movies version of MyAnimeList using TheMoviesDatabase API
  
-## Table of Contents
+##### Table of Contents  
 [Prototype 1](#prototype-1)
 [Prototype 2](#prototype-2)
 [Technologies](#technologies)
 [Note](#note)
 [Credit](#credit)
-...snip...
+...snip...    
+<a name="headers"/>
 
 ### Prototype 1
 
