@@ -2,11 +2,11 @@
 A movies version of MyAnimeList using TheMoviesDatabase API
  
 ## Table of Contents  
-- [Prototype 1](#prototype-1)
-- [Prototype 2](#prototype-2)
-- [Technologies](#technologies)
-- [Note](#note)
-- [Credit](#credit)
+1. [Prototype 1](#prototype-1)
+2. [Prototype 2](#prototype-2)
+3. [Technologies](#technologies)
+4. [Note](#note)
+5. [Credit](#credit)
 
 ### Prototype 1
 
