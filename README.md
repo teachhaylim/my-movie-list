@@ -41,19 +41,19 @@ A movies version of MyAnimeList using TheMoviesDatabase API
 ### Prototype 1 Preview
 
 <p>
-  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20Default%20-%20P1.jpg" height="450em"/>
-  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20Movie%20-%20P1.jpg" height="450em"/>
-  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20TV%20-%20P1.jpg" height="450em"/>
-  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Detail%20Page%20-%20P1.jpg" height="450em"/>
+  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20Default%20-%20P1.jpg" height="350em"/>
+  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20Movie%20-%20P1.jpg" height="350em"/>
+  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20TV%20-%20P1.jpg" height="350em"/>
+  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Detail%20Page%20-%20P1.jpg" height="350em"/>
 </p>
 
 ### Prototype 2 Preview
 
 <p>
-  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20-%20P2.jpg" height="450em"/>
-  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Search%20Screen%20-%20P2.jpg" height="450em"/>
-  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Detail%20Page%20-%20P2.jpg" height="450em"/>
-  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Genre%20Screen%20-%20P2.jpg" height="450em"/>
+  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20-%20P2.jpg" height="350em"/>
+  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Search%20Screen%20-%20P2.jpg" height="350em"/>
+  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Detail%20Page%20-%20P2.jpg" height="350em"/>
+  <img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Genre%20Screen%20-%20P2.jpg" height="350em"/>
 </p>
 
 ## Credit
