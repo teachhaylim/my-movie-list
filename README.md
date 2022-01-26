@@ -58,7 +58,6 @@ A movies version of MyAnimeList using TheMoviesDatabase API
 
 ## Credit
 
-- [Teachhay Lim](https://www.facebook.com/TeachhayLim12)
 - [TheMoviesDatabase API](https://developers.themoviedb.org/3)
 - Based on
   - [Plex App](https://play.google.com/store/apps/details?id=com.plexapp.android&hl=en&gl=US)
