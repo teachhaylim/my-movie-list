@@ -15,6 +15,7 @@ A movies version of MyAnimeList using TheMoviesDatabase API
 -   Movie
 -   TV Show
 -   Dynamic Detail Page based on user selection
+- [Prototype 1 apk](https://drive.google.com/file/d/1hqjg29jQRFxTlqTEdsMCJe5le-YDzrcs/view?usp=sharing) 
 
 ### Prototype 2
 
@@ -23,6 +24,7 @@ A movies version of MyAnimeList using TheMoviesDatabase API
 -   Genre Page
 -   Search Page
 -   Dynamic Detail Page based on user selection or search
+-   [Prototype 2 apk](https://drive.google.com/file/d/1PXv8hrVgA6IrdZltF0s6vXJTnVm0Gn2S/view?usp=sharing) 
 
 ### Technologies
 - Flutter & Dart
