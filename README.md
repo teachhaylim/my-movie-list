@@ -40,17 +40,17 @@ A movies version of MyAnimeList using TheMoviesDatabase API
 
 ### Prototype 1 Preview
 
-<img src="./Assets/Home%20Page%20-%20P2.jpg" heigh="150px"/>
-<img src="./Assets/Search%20Screen%20-%20P2.jpg" heigh="150px"/>
-<img src="./Assets/Detail%20Page%20-%20P2.jpg" heigh="150px"/>
-<img src="./Assets/Genre%20Screen%20-%20P2.jpg" heigh="150px"/>
+<img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20-%20P2.jpg" heigh="150px"/>
+<img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Search%20Screen%20-%20P2.jpg" heigh="150px"/>
+<img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Detail%20Page%20-%20P2.jpg" heigh="150px"/>
+<img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Genre%20Screen%20-%20P2.jpg" heigh="150px"/>
 
 ### Prototype 2 Preview
 
-<img src="./Assets/Home%20Page%20-%20P2.jpg" heigh="150px"/>
-<img src="./Assets/Search%20Screen%20-%20P2.jpg" heigh="150px"/>
-<img src="./Assets/Detail%20Page%20-%20P2.jpg" heigh="150px"/>
-<img src="./Assets/Genre%20Screen%20-%20P2.jpg" heigh="150px"/>
+<img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Home%20Page%20-%20P2.jpg" heigh="150px"/>
+<img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Search%20Screen%20-%20P2.jpg" heigh="150px"/>
+<img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Detail%20Page%20-%20P2.jpg" heigh="150px"/>
+<img src="https://github.com/teachhaylim/MyMoviesList/blob/main/assets/Genre%20Screen%20-%20P2.jpg" heigh="150px"/>
 
 ## Credit
 
